@@ -11,6 +11,10 @@ class App extends React.Component {
         selectedVideo: null
     }
 
+    componentDidMount(){
+        this.onTermSubmit('expensive cars')
+    }
+
 
     onTermSubmit = async (term) => {
         const response = await youtube.get('/search', {
@@ -18,7 +22,10 @@ class App extends React.Component {
                 q: term
             }
         })
-        this.setState({ videos: response.data.items })
+        this.setState({ 
+            videos: response.data.items, 
+            selectedVideo: response.data.items[Math.floor(Math.random()*response.data.items.length)]
+        })
     }
 
     onVideoSelect = (video) => {
@@ -27,7 +34,7 @@ class App extends React.Component {
     
     render() {
        return (
-            <div className="ui container">
+            <div style={{paddingTop: '10px'}} className="ui container">
                 <SearchBar onTermSubmit={this.onTermSubmit}/>
                 <div className='ui grid'>
                     <div className="ui row">

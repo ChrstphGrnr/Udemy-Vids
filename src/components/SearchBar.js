@@ -17,6 +17,7 @@ class SearchBar extends React.Component {
         // parent component
     }
 
+
     render() {
         return (
             <div className='search-bar ui segment'>
