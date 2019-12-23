@@ -11,7 +11,7 @@ class SearchBar extends React.Component {
 
     onSearchSubmit = (e) => {
         e.preventDefault();
-        
+
         // TODO: Make sure to call callback from 
         // parent component
     }
@@ -35,3 +35,4 @@ class SearchBar extends React.Component {
 }
 
 export default SearchBar
+
